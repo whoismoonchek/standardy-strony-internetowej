@@ -1,0 +1,582 @@
+# Kompendium Wiedzy: Budowa, Wygląd i Funkcjonowanie Nowoczesnej Strony Internetowej
+
+Ten katalog zawiera zebraną i ustrukturyzowaną bazę wiedzy dotyczącą projektowania, programowania oraz wdrażania nowoczesnych stron internetowych. Materiał stanowi fundament pod stworzenie kompleksowej **checklisty wdrożeniowej** w kolejnym etapie.
+
+## Struktura katalogu
+
+1. **[01-wyglad-funkcjonowanie-ux-ui.md](./01-wyglad-funkcjonowanie-ux-ui.md)**
+   * Zasady projektowania wizualnego (UI) oraz doświadczeń użytkownika (UX).
+   * Hierarchia wizualna, typografia, kolorystyka i tzw. *Calm Interfaces* (interfejsy nieprzeciążające poznawczo).
+   * Funkcjonowanie interakcji: formularze, stany elementów, nawigacja i mikrointerakcje.
+
+2. **[02-struktura-i-semantyka.md](./02-struktura-i-semantyka.md)**
+   * Architektura informacji (IA) i projektowanie oparte na intencjach użytkownika (*Journey-Led Architecture*).
+   * Anatomia strony głównej oraz kluczowych podstron.
+   * Semantyczny kod HTML5 (znaczniki strukturalne, nagłówki, dane strukturalne Schema.org).
+
+3. **[03-responsywnosc-i-adaptacja-urzadzen.md](./03-responsywnosc-i-adaptacja-urzadzen.md)**
+   * Podejście *Mobile-First* oraz *Responsive Web Design (RWD)*.
+   * Adaptacja pod różne urządzenia: smartfony, tablety, laptopy, monitory panoramiczne (4K/Ultrawide), czytniki i ekrany dotykowe.
+   * Nowoczesne techniki CSS: Flexbox, CSS Grid, *Container Queries*, płynna typografia (`clamp()`) oraz optymalizacja mediów.
+
+4. **[04-dostepnosc-wcag.md](./04-dostepnosc-wcag.md)**
+   * Standard **WCAG 2.0** oraz jego rozszerzenia (**WCAG 2.1 / 2.2** i wymogi Europejskiego Aktu o Dostępności – EAA).
+   * Cztery główne filary **POUR**: Postrzegalność (*Perceivable*), Funkcjonalność (*Operable*), Zrozumiałość (*Understandable*), Solidność (*Robust*).
+   * Poziomy zgodności (A, AA, AAA) oraz praktyczne wytyczne techniczne (kontrast, nawigacja klawiaturą, ARIA, multimedia).
+
+5. **[05-kluczowe-skladowe-techniczne-i-prawne.md](./05-kluczowe-skladowe-techniczne-i-prawne.md)**
+   * Wydajność i **Core Web Vitals** (LCP, INP, CLS).
+   * Techniczne i treściowe **SEO** oraz indeksowanie *Mobile-First*.
+   * **Bezpieczeństwo** (HTTPS/SSL, nagłówki bezpieczeństwa CSP, ochrona formularzy, kopie zapasowe).
+   * **Kwestie prawne i RODO/GDPR** (polityka prywatności, Consent Mode / banery cookies, regulaminy).
+   * Analityka, monitoring błędów i utrzymanie strony.
+
+6. **[06-marketing-konwersja-cta-i-zysk.md](./06-marketing-konwersja-cta-i-zysk.md)**
+   * **Optymalizacja konwersji (CRO) i psychologia sprzedaży** wg standardów **Nielsen Norman Group (NN/g)**, **Baymard Institute**, **CXL**, **Copyhackers**, **MECLABS**, **Unbounce** i **HubSpot**.
+   * Projektowanie skutecznych **Call to Action (CTA)**: copywriting przycisków, redukcja obaw (*Click Triggers*), hierarchia zaangażowania i rozmieszczenie.
+   * **Value Proposition** (propozycja wartości w sekcji Hero) oraz frameworki copywriterskie (PAS, AIDA, język korzyści).
+   * Budowanie zaufania (**Trust Signals**, kontekstowy **Social Proof**), psychologia cenników (*Pricing Page Psychology*) oraz optymalizacja formularzy (*Lead Generation*) i koszyka zakupowego.
+   * Analityka zysku, mapy ciepła (Microsoft Clarity / Hotjar) oraz lista autorytatywnych źródeł branżowych.
+
+7. **[../checklist/podsumowanie.md](../checklist/podsumowanie.md)** (oraz główny plik **[../README.md](../README.md)**)
+   * Mapa 6 głównych obszarów standardów strony internetowej.
+   * Kompleksowa checklista wdrożeniowa podzielona na 6 plików w katalogu `../checklist/` (75 konkretnych punktów „tak/nie" z priorytetami, sposobem weryfikacji i dokładnym odniesieniem do plików `01`–`06`).
+   * Tabela podsumowująca, lista **TOP 10 najważniejszych wymagań**, sekcja „Braki" oraz przyjęte założenia.
+
+
+
+# 1. Wygląd i Funkcjonowanie Strony Internetowej (UX / UI)
+
+Nowoczesna strona internetowa musi łączyć estetykę z użytecznością. Jej głównym celem jest szybkie dostarczenie użytkownikowi odpowiedzi na jego potrzeby przy minimalnym wysiłku poznawczym (*cognitive load*).
+
+---
+
+## 1.1. Zasady Wyglądu (User Interface – UI)
+
+### Hierarchia wizualna i układ
+* **Zasada pierwszeństwa (Above the Fold):** Najważniejsza propozycja wartości (*Value Proposition*) oraz główne wezwanie do działania (*Call to Action – CTA*) muszą być widoczne od razu po załadowaniu strony, bez konieczności przewijania.
+* **Wzorce skanowania wzrokiem:** Użytkownicy nie czytają stron słowo po słowie – skanują je wzrokiem według wzorca **F** (dla stron z dużą ilością tekstu) lub **Z** (dla stron typu landing page).
+* **Biała przestrzeń (Whitespace / Negative Space):** Odpowiednie odstępy między sekcjami, akapitami i elementami interaktywnymi poprawiają czytelność o ponad 20% i nadają stronie profesjonalny, uporządkowany wygląd (*Calm Interface*).
+* **System siatki (Grid System):** Stosowanie spójnej siatki (np. 12-kolumnowej na desktopie, 4-kolumnowej na mobile) oraz stałych jednostek odstępów (np. wielokrotności `4px` lub `8px`).
+
+### Typografia
+* **Ograniczona liczba krojów pisma:** Maksymalnie 2 kroje pisma (np. jeden wyrazisty dla nagłówków, drugi wysoce czytelny bezszeryfowy dla tekstu głównego).
+* **Czytelność tekstu głównego:**
+  * Rozmiar bazowy: minimum `16px` (`1rem`) na urządzeniach mobilnych i `16px–18px` na desktopie.
+  * Długość linii tekstu: optymalnie **50–75 znaków** w wierszu (zbyt długie wiersze męczą wzrok).
+  * Interlinia (*line-height*): około `1.5` dla tekstu głównego i `1.15–1.3` dla nagłówków.
+
+### Kolorystyka
+* **Zasada 60-30-10:**
+  * **60%** – kolor dominujący / tło (zazwyczaj neutralny: biel, bardzo jasny szary lub ciemny grafit w trybie Dark Mode).
+  * **30%** – kolor wtórny (identyfikacja marki, karty, sekcje wyróżnione).
+  * **10%** – kolor akcentowy (przyciski CTA, kluczowe interakcje, powiadomienia).
+* **Spójność semantyczna kolorów:** Czerwony zawsze oznacza błąd/usuwanie, zielony – sukces/potwierdzenie, żółty/pomarańczowy – ostrzeżenie, niebieski – informację.
+* **Obsługa Dark Mode (`prefers-color-scheme`):** Coraz częściej wymagana adaptacja kolorystyki do preferencji systemowych użytkownika.
+
+---
+
+## 1.2. Zasady Funkcjonowania (User Experience – UX)
+
+### Intuicyjna nawigacja
+* **Przewidywalność (Prawo Jakoba):** Użytkownicy spędzają większość czasu na innych stronach, dlatego oczekują, że Twoja strona będzie działać podobnie (logo w lewym górnym rogu prowadzące do strony głównej, główne menu na górze, koszyk/konto w prawym górnym rogu).
+* **Zasada 3 kliknięć / niska głębokość nawigacji:** Użytkownik powinien dotrzeć do dowolnej kluczowej informacji w maksymalnie 3 krokach.
+* **Wyszukiwarka wewnętrzna:** Niezbędna w serwisach rozbudowanych, blogach i sklepach e-commerce (z obsługą autouzupełniania i tolerancją na literówki).
+
+### Interaktywność i informacja zwrotna (Feedback)
+Każdy element interaktywny musi komunikować swój stan:
+1. **Default** (stan domyślny)
+2. **Hover** (najazd kursorem – na urządzeniach ze wskaźnikiem)
+3. **Focus** (wybranie klawiaturą – wyraźny obrys)
+4. **Active / Pressed** (moment kliknięcia/dotknięcia)
+5. **Disabled** (element nieaktywny – wyszarzony, brak reakcji na klik)
+6. **Loading** (stan ładowania – np. spinner na przycisku po wysłaniu formularza, aby zapobiec podwójnemu kliknięciu).
+
+### Projektowanie formularzy
+* **Minimalizacja pól:** Pytaj tylko o dane absolutnie niezbędne na danym etapie.
+* **Widoczne etykiety (`<label>`):** Nigdy nie zastępuj etykiety samym tekstem pomocniczym (`placeholder`), ponieważ znika on w momencie wpisywania tekstu.
+* **Walidacja w czasie rzeczywistym (Inline Validation):** Informuj o błędach od razu po opuszczeniu pola (`onBlur`), wskazując dokładnie, co należy poprawić (np. *"Wpisz adres e-mail zawierający znak @"* zamiast ogólnego *"Błąd w formularzu"*).
+* **Odpowiednie typy pól:** Używanie `type="email"`, `type="tel"`, `inputmode="numeric"` oraz atrybutów `autocomplete`, aby przeglądarka i klawiatura ekranowa podpowiadały właściwy układ znaków.
+
+### Wydajność postrzegana i mikrointerakcje
+* **Skeleton Screens:** Zamiast pustego ekranu lub kręcącego się kółka na środku strony, stosuj szkieletowe zamienniki treści podczas ładowania danych.
+* **Płynne, nienachalne animacje:** Animacje powinny trwać od `150ms` do `300ms` i służyć wyjaśnieniu zmian na ekranie (np. rozwinięcie menu), a nie spowalnianiu użytkownika.
+
+# 2. Struktura Strony Internetowej i Architektura Informacji
+
+Dobrze zaplanowana struktura strony pełni podwójną rolę: prowadzi użytkownika przez proces decyzyjny (*Journey-Led Architecture*) oraz pozwala robotom wyszukiwarek i czytnikom ekranu bezbłędnie zrozumieć hierarchię treści.
+
+---
+
+## 2.1. Architektura Informacji w skali całego serwisu (Mapa Strony)
+
+Typowa, zoptymalizowana struktura serwisu ma kształt piramidy:
+* **Poziom 0:** Strona główna (*Homepage*)
+* **Poziom 1:** Główne kategorie / Usługi / O nas / Kontakt / Blog
+* **Poziom 2:** Podkategorie / Konkretne oferty / Wpisy blogowe / Case studies
+* **Strony pomocnicze i systemowe:**
+  * Strona błędu `404` (z informacją, co się stało, wyszukiwarką i linkiem powrotnym do strony głównej).
+  * Strona podziękowania (*Thank You Page*) lub jasny komunikat po wysłaniu formularza.
+  * Strony prawne: Polityka prywatności, Polityka cookies, Regulamin, Deklaracja dostępności.
+
+---
+
+## 2.2. Anatomia Pojedynczej Strony (Sekcja po sekcji)
+
+Nowoczesna strona (szczególnie strona główna lub ofertowa) powinna odpowiadać na kolejne pytania pojawiające się w głowie użytkownika:
+
+1. **Nagłówek (`<header>` + `<nav>`):**
+   * Logo (link do strony głównej).
+   * Główne menu nawigacyjne (5–7 pozycji maksymalnie).
+   * Przełącznik języka / motywu (jeśli dotyczy).
+   * Wyróżniony przycisk głównej akcji (CTA, np. *"Umów konsultację"*, *"Kup teraz"*).
+2. **Sekcja Hero (Pierwszy ekran):**
+   * Główny nagłówek `H1` odpowiadający na pytanie: *Co to jest i jaką daje mi korzyść?*
+   * Podtytuł rozwijający myśl w 1–2 zdaniach.
+   * Główne CTA (oraz opcjonalnie drugorzędne CTA o niższym progu wejścia, np. *"Zobacz realizacje"*).
+   * Element wizualny pokazujący produkt/usługę w akcji.
+3. **Dowód społeczny (Social Proof / Trust Bar):**
+   * Logotypy klientów, certyfikaty, liczby, oceny z zewnętrznych portali.
+4. **Problem i Rozwiązanie / Oferta / Funkcjonalności:**
+   * Podział na czytelne karty lub sekcje z ikonami/ilustracjami pokazujące, jak strona/produkt rozwiązuje problem użytkownika.
+5. **Studia przypadków (Case Studies) / Opinie (Testimonials):**
+   * Konkretne rezultaty i autentyczne recenzje budujące wiarygodność.
+6. **Sekcja FAQ (Najczęściej zadawane pytania):**
+   * Rozwiewanie ostatnich wątpliwości przed podjęciem decyzji (doskonałe również pod SEO i wyszukiwanie głosowe/AI).
+7. **Końcowa sekcja CTA (Final Call to Action):**
+   * Wyraźne zamknięcie strony zachęcające do kontaktu lub zakupu.
+8. **Stopka (`<footer>`):**
+   * Pełna mapa linków (nawigacja dolna), dane kontaktowe i rejestrowe firmy (NIP, adres), linki do social mediów, linki do dokumentów prawnych, informacja o prawach autorskich.
+
+---
+
+## 2.3. Struktura Kodu – Semantyczny HTML5
+
+Przeglądarki, wyszukiwarki i technologie asystujące opierają się na znacznikach semantycznych zamiast anonimowych bloków `<div>`:
+
+```html
+<body>
+  <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+  
+  <header>
+    <nav aria-label="Główna nawigacja">
+      <!-- Elementy menu -->
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Główny tytuł strony</h1>
+      <!-- Treść sekcji Hero -->
+    </section>
+
+    <section aria-labelledby="services-heading">
+      <h2 id="services-heading">Nasze usługi</h2>
+      <article>
+        <h3>Usługa 1</h3>
+        <p>Opis usługi...</p>
+      </article>
+    </section>
+
+    <aside>
+      <!-- Treści poboczne, np. powiązane wpisy lub filtry -->
+    </aside>
+  </main>
+
+  <footer>
+    <nav aria-label="Nawigacja w stopce">
+      <!-- Linki w stopce -->
+    </nav>
+  </footer>
+</body>
+```
+
+### Kluczowe zasady semantyki:
+* **Ścisła hierarchia nagłówków (`H1`–`H6`):**
+  * Dokładnie **jeden** znacznik `<h1>` na każdej podstronie.
+  * Zakaz pomijania poziomów nagłówków (np. przejścia z `<h2>` bezpośrednio do `<h4>` tylko ze względu na rozmiar czcionki – do wyglądu służy CSS).
+* **Właściwy dobór elementów interaktywnych:**
+  * `<a>` (link) służy do **nawigacji** (zmiany adresu URL lub przewinięcia do kotwicy).
+  * `<button>` (przycisk) służy do **wykonywania akcji** na stronie (wysłanie formularza, otwarcie okna modalnego, rozwinięcie menu).
+  * Nigdy nie używaj `<div onclick="...">` jako zamiennika przycisku.
+
+# 3. Adaptacja pod Różne Urządzenia (Responsywność / RWD)
+
+Współczesny internet jest przeglądany na setkach różnych rozdzielczości i proporcji ekranu: od małych smartfonów (`320px` szerokości), przez składane telefony (*foldables*), tablety (w orientacji pionowej i poziomej), laptopy, aż po monitory panoramiczne 4K i telewizory Smart TV.
+
+---
+
+## 3.1. Filozofia Mobile-First
+
+* **Projektowanie od najmniejszego ekranu w górę:** Ponad 60–70% ruchu w sieci pochodzi z urządzeń mobilnych, a Google stosuje *Mobile-First Indexing* (ocenia i pozycjonuje stronę na podstawie jej wersji mobilnej).
+* **Równorzędność treści (Content Parity):** Wersja mobilna nie może być „okrojoną" wersją strony, z której ukryto istotne informacje za pomocą `display: none`. Może mieć inny układ (np. akordeony lub karty układane jedna pod drugą), ale musi dostarczać pełną wartość merytoryczną.
+* **Strefa kciuka (Thumb Zone):** Na smartfonach kluczowe elementy interaktywne (główne CTA, przycisk otwierania menu lub dolny pasek nawigacyjny) powinny znajdować się w łatwym zasięgu kciuka trzymającego telefon jedną ręką.
+
+---
+
+## 3.2. Punkty Przerwania (Breakpoints) i Elastyczne Układy
+
+Zamiast projektować sztywne widoki pod konkretne modele telefonów, stosuje się płynne siatki (*Fluid Grids*) oraz orientacyjne punkty przerwania (`@media`):
+
+| Kategoria urządzenia | Zakres szerokości | Typowy układ |
+| :--- | :--- | :--- |
+| **Małe smartfony** | `320px – 479px` | 1 kolumna, pełna szerokość przycisków, zoptymalizowane odstępy (`16px` marginesu bocznego). |
+| **Duże smartfony / Małe tablety** | `480px – 767px` | 1–2 kolumny dla mniejszych kart, większe zdjęcia. |
+| **Tablety / Składane ekrany** | `768px – 1023px` | 2–3 kolumny, przejście z menu mobilnego (hamburger) do pełnego menu lub układu hybrydowego. |
+| **Laptopy i standardowe desktopy** | `1024px – 1439px` | Układ wielokolumnowy (np. siatka 12-kolumnowa), pełna nawigacja, efekty `hover`. |
+| **Duże monitory / Ultrawide / 4K** | `1440px+` | Ograniczenie maksymalnej szerokości kontenera z treścią (`max-width: 1280px` lub `1440px`) i wyśrodkowanie go, aby wiersze tekstu nie rozciągały się na całą szerokość ekranu. |
+
+---
+
+## 3.3. Nowoczesne Techniki Techniczne RWD
+
+### 1. Meta Viewport
+Obowiązkowy znacznik w sekcji `<head>`, bez którego urządzenia mobilne skalują stronę jak widok desktopowy:
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+*(Uwaga: Nigdy nie blokuj możliwości przybliżania strony przez użytkownika za pomocą `user-scalable=no` lub `maximum-scale=1.0` – narusza to zasady dostępności WCAG!)*
+
+### 2. CSS Grid, Flexbox i Container Queries
+* **Flexbox:** Idealny do układów jednowymiarowych (paski nawigacji, wyrównanie elementów w wierszu lub kolumnie).
+* **CSS Grid (`minmax`, `auto-fit`, `auto-fill`):** Pozwala na tworzenie automatycznie łamiących się siatek bez użycia ani jednego zapytania `@media`:
+  ```css
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.5rem;
+  }
+  ```
+* **Container Queries (`@container`):** Nowoczesny standard pozwalający komponentowi (np. karcie produktu) dostosować swój wygląd do szerokości **kontenera, w którym się znajduje**, a nie tylko całego okna przeglądarki.
+
+### 3. Płynna Typografia i Odstępy (`clamp()`)
+Zamiast skokowej zmiany rozmiaru czcionki na punktach przerwania, funkcja `clamp(minimum, wartość-preferowana, maksimum)` płynnie skaluje tekst wraz z szerokością ekranu:
+```css
+h1 {
+  font-size: clamp(1.75rem, 3vw + 1rem, 3.25rem);
+}
+```
+
+### 4. Adaptacja pod rodzaj wejścia (Dotyk vs. Myszka)
+Nie każde duże urządzenie ma myszkę (np. duże iPady) i nie każde małe urządzenie jest wyłącznie dotykowe:
+* Wykrywanie możliwości urządzenia w CSS za pomocą `@media (hover: hover) and (pointer: fine)` – efekty najechania myszką (`:hover`) nie powinny blokować dostępu do treści na ekranach dotykowych.
+* **Rozmiar obszarów dotykowych (Touch Targets):** Przyciski, ikony i linki na urządzeniach dotykowych muszą mieć odpowiedni rozmiar (minimum `44×44 px` wg iOS/WCAG 2.1 AAA lub `48×48 dp` wg Material Design, a wg WCAG 2.2 AA minimum `24×24 px` wraz z odpowiednim odstępem).
+
+### 5. Responsywne Obrazy i Media
+Wysyłanie obrazu o szerokości `2500px` na ekran telefonu to marnowanie transferu i spowolnienie strony:
+* Używanie atrybutów `srcset` oraz `sizes` lub znacznika `<picture>`, aby przeglądarka pobrała plik dopasowany do rozdzielczości i gęstości pikseli ekranu (Retina `2x`, `3x`).
+* Stosowanie `max-width: 100%; height: auto;` oraz właściwości `aspect-ratio`, aby obrazy i wideo nie rozpychały układu na wąskich ekranach.
+* Tabele danych na mobile: umieszczanie szerokich tabel w przewijanym poziomo kontenerze (`overflow-x: auto`) lub przekształcanie wierszy w pionowe karty.
+
+# 4. Dostępność Cyfrowa: WCAG 2.0 (oraz rozszerzenia 2.1 i 2.2)
+
+**WCAG (Web Content Accessibility Guidelines)** to międzynarodowy standard opracowany przez W3C (WAI), który określa, jak tworzyć strony internetowe dostępne dla wszystkich ludzi – w tym osób z niepełnosprawnościami wzroku, słuchu, ruchu oraz z trudnościami poznawczymi i neurologicznymi.
+
+---
+
+## 4.1. Ewolucja Standardu: WCAG 2.0 → 2.1 → 2.2
+
+* **WCAG 2.0 (fundament):** Wprowadził 4 główne zasady (**POUR**), 12 wytycznych i 3 poziomy zgodności (A, AA, AAA). Wszystkie wymogi WCAG 2.0 są w pełni aktualne i obowiązują w nowszych wersjach.
+* **WCAG 2.1 (rozszerzenie o mobile i słabowidzących):** Zachowuje całość WCAG 2.0 i dodaje kryteria dotyczące ekranów dotykowych, orientacji ekranu (pion/poziom), kontrastu elementów nietekstowych (ikon, obramowań pól) oraz odstępów w tekście.
+* **WCAG 2.2 (najnowszy standard obowiązujący m.in. w ramach Europejskiego Aktu o Dostępności – EAA):** Dodaje kryteria dotyczące widoczności fokusu (brak zasłaniania elementu z fokusem przez przyklejone menu), minimalnego rozmiaru celów dotykowych (`24×24 px`), alternatyw dla gestów przeciągania (*drag-and-drop*) oraz dostępnego uwierzytelniania (logowania bez testów obciążających pamięć i bez blokowania menedżerów haseł).
+
+### Poziomy zgodności:
+1. **Poziom A:** Absolutne minimum – jego brak uniemożliwia wielu osobom jakiekolwiek skorzystanie ze strony.
+2. **Poziom AA:** **Standard docelowy i wymóg prawny** (w Polsce i UE dla instytucji publicznych oraz wielu sektorów prywatnych, takich jak e-commerce, bankowość i usługi).
+3. **Poziom AAA:** Najwyższy poziom dostępności, stosowany w wyspecjalizowanych serwisach (nie zawsze możliwy do wdrożenia dla każdego rodzaju treści).
+
+---
+
+## 4.2. Cztery Filary Dostępności (Zasady POUR)
+
+### 1. Postrzegalność (Perceivable)
+Informacje oraz komponenty interfejsu muszą być przedstawione użytkownikowi w sposób, który potrafi on dostrzec swoimi zmysłami.
+
+* **Teksty alternatywne (Kryterium 1.1.1):**
+  * Każdy obraz niosący informację musi mieć opisowy atrybut `alt="..."`.
+  * Obrazy czysto dekoracyjne muszą mieć pusty atrybut `alt=""` (lub `role="presentation"`), aby czytnik ekranu je pominął i nie czytał nazwy pliku.
+* **Multimedia (Kryteria 1.2.x):**
+  * Nagrania wideo ze ścieżką dźwiękową wymagają napisów rozszerzonych (*captions*) dla osób niesłyszących oraz audiodeskrypcji (lub transkrypcji tekstowej) dla osób niewidomych.
+* **Możliwość adaptacji i struktura (Kryteria 1.3.x):**
+  * Treść musi zachować logiczną kolejność czytania nawet po wyłączeniu arkuszy stylów CSS.
+  * Instrukcje nie mogą opierać się wyłącznie na cechach zmysłowych, takich jak kształt, rozmiar czy położenie (np. unikaj sformułowań typu *"Kliknij okrągły zielony przycisk po prawej stronie"*).
+  * Strona nie może być zablokowana tylko do jednej orientacji ekranu (pionowej lub poziomej).
+* **Możliwość rozróżnienia i Kontrast (Kryteria 1.4.x):**
+  * **Nie samym kolorem:** Kolor nie może być jedynym sposobem przekazania informacji (np. błędne pole formularza musi mieć nie tylko czerwoną ramkę, ale też ikonę i tekstowy opis błędu; linki w tekście powinny być podkreślone, a nie tylko różnić się kolorem).
+  * **Kontrast tekstu (Poziom AA):**
+    * Minimum **4.5:1** dla zwykłego tekstu.
+    * Minimum **3:1** dla dużego tekstu (od `18pt`/`24px` lub pogrubionego od `14pt`/`18.5px`).
+  * **Kontrast elementów graficznych i UI (WCAG 2.1 AA):** Minimum **3:1** dla ikon, wykresów oraz obramowań pól formularzy i przycisków.
+  * **Powiększanie i przelewanie tekstu (Reflow):** Strona musi pozostać czytelna i funkcjonalna przy powiększeniu tekstu do **200%** oraz przy szerokości ekranu `320px` (odpowiednik powiększenia 400% na ekranie `1280px`) bez konieczności przewijania w dwóch wymiarach jednocześnie.
+
+---
+
+### 2. Funkcjonalność (Operable)
+Wszystkie komponenty interfejsu i nawigacja muszą być możliwe do obsłużenia przez każdego użytkownika.
+
+* **Dostępność z klawiatury (Kryteria 2.1.x):**
+  * **100% funkcji strony** (menu, formularze, karuzele, okna modalne, odtwarzacze) musi dać się obsłużyć wyłącznie za pomocą klawiatury (`Tab`, `Shift + Tab`, `Enter`, `Spacja`, `Strzałki`, `Esc`).
+  * **Zakaz pułapek klawiaturowych (No Keyboard Trap):** Użytkownik, który wszedł do elementu za pomocą klawisza `Tab`, musi móc z niego wyjść. W otwartym oknie modalnym fokus powinien krążyć wewnątrz modala, a klawisz `Esc` powinien zamykać okno i przywracać fokus na przycisk, który je otworzył.
+* **Wystarczający czas (Kryteria 2.2.x):**
+  * Jeśli na stronie są limity czasowe (np. wygasanie sesji), użytkownik musi mieć możliwość ich wyłączenia lub przedłużenia.
+  * Automatycznie przesuwające się karuzele czy animacje trwające dłużej niż 5 sekund muszą posiadać przycisk **Pauza / Stop**.
+* **Ataki padaczki i reakcje fizyczne (Kryteria 2.3.x):**
+  * Żaden element na stronie nie może błyskać częściej niż **3 razy na sekundę**.
+  * Obsługa ustawienia systemowego `prefers-reduced-motion: reduce` (wyłączenie gwałtownych animacji i efektu paralaksy dla osób z zaburzeniami błędnika).
+* **Nawigacja (Kryteria 2.4.x):**
+  * **Skip Link:** Ukryty wizualnie (widoczny po pierwszym naciśnięciu `Tab`) link *"Przejdź do głównej treści"* na samym początku strony.
+  * **Unikalne i opisowe tytuły stron (`<title>`):** Np. `<title>Cennik usług projektowych – NazwaFirmy</title>` zamiast samego `<title>Strona główna</title>`.
+  * **Widoczny Fokus (Focus Visible):** Nigdy nie używaj `outline: none` bez zapewnienia wyraźnego, kontrastowego zastępstwa dla stanu `:focus-visible`.
+  * **Zrozumiały cel linku:** Unikaj linków o treści *"Kliknij tutaj"* lub *"Więcej"*. Tekst linku powinien jednoznacznie opisywać, dokąd prowadzi (np. *"Pobierz raport roczny 2026 (PDF, 2 MB)"*).
+
+---
+
+### 3. Zrozumiałość (Understandable)
+Treść oraz sposób działania interfejsu muszą być zrozumiałe dla odbiorcy.
+
+* **Czytelność i język (Kryteria 3.1.x):**
+  * Zadeklarowany główny język dokumentu w znaczniku HTML: `<html lang="pl">`, aby syntezator mowy używał polskiej wymowy.
+  * Fragmenty w innym języku oznaczone atrybutem `lang` (np. `<span lang="en">Design Thinking</span>`).
+  * Prosty, zrozumiały język i wyjaśnianie specjalistycznych skrótów.
+* **Przewidywalność (Kryteria 3.2.x):**
+  * Samo otrzymanie fokusu przez element (`onFocus`) lub zmiana wartości pola (`onChange`) nie może powodować nieoczekiwanej zmiany kontekstu (np. automatycznego przeładowania strony lub otwarcia nowego okna bez kliknięcia przycisku zatwierdzającego).
+  * Nawigacja i elementy powtarzalne występują zawsze w tej samej kolejności na wszystkich podstronach.
+* **Pomoc przy wprowadzaniu danych (Kryteria 3.3.x):**
+  * Każde pole formularza ma trwale powiązaną etykietę (`<label for="id_pola">`).
+  * W przypadku błędu walidacji błąd jest opisany tekstem, powiązany z polem (np. przez `aria-describedby` i `aria-invalid="true"`) i podpowiada sposób naprawy.
+  * W przypadku ważnych operacji (finansowych, prawnych, usuwania danych) użytkownik może cofnąć operację, zweryfikować dane przed wysłaniem lub potwierdzić swój wybór.
+
+---
+
+### 4. Solidność / Kompatybilność (Robust)
+Treść musi być stworzona na tyle solidnie, aby mogła być niezawodnie interpretowana przez różne przeglądarki oraz technologie asystujące (czytniki ekranu takie jak NVDA, JAWS, VoiceOver, TalkBack).
+
+* **Poprawność kodu HTML:** Brak niezamkniętych znaczników, duplikatów atrybutów `id` czy nieprawidłowego zagnieżdżania (np. `<button>` wewnątrz `<a>`).
+* **Nazwa, Rola, Wartość (Kryterium 4.1.2):**
+  * Wszystkie niestandardowe komponenty (akordeony, zakładki, rozwijane listy) muszą informować czytnik ekranu o swojej roli i stanie za pomocą atrybutów **WAI-ARIA** (np. `aria-expanded="true/false"`, `aria-controls`, `aria-selected`).
+* **Komunikaty o stanie (Kryterium 4.1.3 – WCAG 2.1):**
+  * Dynamiczne komunikaty pojawiające się bez przeładowania strony (np. *"Produkt dodano do koszyka"*, *"Znaleziono 5 wyników"*, komunikaty błędów) muszą być ogłaszane przez czytniki ekranu za pomocą regionów `aria-live="polite"` lub `role="status"` / `role="alert"`.
+
+# 5. Inne Bardzo Ważne Składowe Strony Internetowej
+
+Poza wyglądem (UI/UX), strukturą, responsywnością i dostępnością (WCAG), o sukcesie, bezpieczeństwie i widoczności strony w internecie decyduje pięć kluczowych obszarów techniczno-prawnych.
+
+---
+
+## 5.1. Wydajność, Szybkość i Core Web Vitals
+
+Szybkość działania strony wpływa bezpośrednio na współczynnik odrzuceń (*bounce rate*), konwersję oraz pozycję w wynikach wyszukiwania Google.
+
+### Wskaźniki Core Web Vitals (CWV):
+1. **LCP (Largest Contentful Paint) ≤ 2.5 sekundy:** Czas wyrenderowania największego widocznego elementu w pierwszym oknie ekranu (np. głównego zdjęcia lub nagłówka w sekcji Hero).
+2. **INP (Interaction to Next Paint) ≤ 200 milisekund:** Czas reakcji strony na interakcję użytkownika (kliknięcie, dotknięcie ekranu, naciśnięcie klawisza) aż do odświeżenia widoku.
+3. **CLS (Cumulative Layout Shift) < 0.1:** Stabilność wizualna układu – brak „skakania" tekstu i przycisków podczas doczytywania grafik, reklam czy czcionek.
+
+### Kluczowe techniki optymalizacji:
+* **Nowoczesne formaty obrazów:** Konwersja grafik do formatu **WebP** lub **AVIF** oraz wektorowego **SVG** dla ikon i logotypów.
+* **Leniwe ładowanie (Lazy Loading):** Dodanie `loading="lazy"` dla obrazów i ramek `<iframe>` znajdujących się poniżej pierwszego ekranu, ale użycie `fetchpriority="high"` (bez lazy loadingu!) dla głównego obrazu w sekcji Hero.
+* **Jawne wymiary mediów:** Zawsze podawaj atrybuty `width` i `height` w znaczniku `<img>` lub `aspect-ratio` w CSS, aby przeglądarka zarezerwowała miejsce przed pobraniem pliku (eliminacja CLS).
+* **Optymalizacja fontów:** Lokalny hosting czcionek (lub preconnect do serwera fontów), format `WOFF2`, podzbiory znaków (np. `latin-ext` dla polskich znaków) oraz właściwość `font-display: swap`.
+* **Minifikacja i kompresja:** Kompresja tekstu na serwerze (**Brotli** lub **Gzip**), minifikacja CSS/JS, usuwanie nieużywanego kodu oraz ładowanie skryptów z atrybutami `defer` lub `async`.
+* **Caching i CDN:** Wykorzystanie sieci Content Delivery Network (np. Cloudflare) oraz nagłówków pamięci podręcznej (`Cache-Control`).
+
+---
+
+## 5.2. Techniczne SEO i Widoczność (Search & AI Readiness)
+
+Nawet najlepsza strona nie spełni swojej roli, jeśli użytkownicy nie będą mogli jej znaleźć w wyszukiwarkach i systemach AI.
+
+* **Meta tagi na każdej podstronie:**
+  * Unikalny `<title>` (optymalnie 50–60 znaków).
+  * Unikalny `<meta name="description">` (optymalnie 120–155 znaków, zachęcający do kliknięcia).
+* **Open Graph i Social Media Cards (`og:title`, `og:description`, `og:image`):** Odpowiadają za atrakcyjny wygląd linku po wklejeniu go na Facebooka, LinkedIna, Slacka, Discorda czy w wiadomości SMS/WhatsApp.
+* **Przyjazne adresy URL (Clean URLs):** Krótkie, opisowe adresy pisane małymi literami ze słowami oddzielonymi myślnikiem (np. `/uslugi/projektowanie-stron` zamiast `/index.php?id=48&cat=2`).
+* **Pliki dla robotów i indeksowania:**
+  * `sitemap.xml` – automatycznie aktualizowana mapa strony zgłoszona w Google Search Console.
+  * `robots.txt` – instrukcje dla robotów wyszukiwarek (upewnienie się, że strona produkcyjna nie ma blokady `noindex` po zakończeniu prac deweloperskich!).
+  * **Tagi kanoniczne (`rel="canonical"`):** Zapobieganie duplikacji treści.
+  * Poprawne przekierowania `301` (np. ujednolicenie wersji z `www` i bez `www` oraz wymuszenie `https://`).
+* **Dane strukturalne (Schema.org / JSON-LD):** Znaczniki pomagające Google i asystentom AI zrozumieć typ treści (np. `Organization`, `LocalBusiness`, `Product`, `FAQPage`, `Article`, `BreadcrumbList`).
+
+---
+
+## 5.3. Bezpieczeństwo (Web Security)
+
+* **Certyfikat SSL / HTTPS:** Szyfrowanie połączenia to absolutny standard (brak HTTPS skutkuje ostrzeżeniem *"Strona niezabezpieczona"* w przeglądarce i blokadą wielu nowoczesnych API przeglądarkowych).
+* **Nagłówki bezpieczeństwa HTTP (Security Headers):**
+  * `Strict-Transport-Security` (HSTS) – wymuszenie połączenia wyłącznie przez HTTPS.
+  * `Content-Security-Policy` (CSP) – ochrona przed atakami XSS (Cross-Site Scripting) poprzez określenie dozwolonych źródeł skryptów.
+  * `X-Content-Type-Options: nosniff` oraz `X-Frame-Options: SAMEORIGIN` (ochrona przed *clickjackingiem*).
+  * `Referrer-Policy` oraz `Permissions-Policy`.
+* **Zabezpieczenie formularzy:**
+  * Ochrona przed spamem i botami – najlepiej niewidoczna dla użytkownika i zgodna z WCAG (np. Cloudflare Turnstile, pole typu *Honeypot*, ograniczanie liczby zapytań – *Rate Limiting*) zamiast trudnych do odczytania obrazkowych CAPTCHA.
+  * Walidacja i sanityzacja danych **po stronie serwera** (ochrona przed SQL Injection i XSS), używanie tokenów CSRF.
+* **Aktualizacje i kopie zapasowe (Backups):** Regularne automatyczne kopie zapasowe bazy danych i plików przechowywane w zewnętrznej lokalizacji oraz aktualizacja zależności/wtyczek CMS.
+
+---
+
+## 5.4. Wymogi Prawne, Prywatność i RODO (GDPR)
+
+Każda strona zbierająca jakiekolwiek dane użytkowników (nawet adresy IP w logach, pliki cookies analityczne czy dane w formularzu kontaktowym) musi spełniać wymogi prawne:
+
+* **Baner Cookies i Zarządzanie Zgodami (Consent Management / Google Consent Mode v2):**
+  * Skrypty śledzące, analityczne i marketingowe (np. Google Analytics, Meta Pixel) **nie mogą** uruchamiać się przed wyrażeniem dobrowolnej zgody przez użytkownika.
+  * Przycisk *"Odrzuć wszystkie"* (lub *"Tylko niezbędne"*) musi być równie widoczny i łatwy do kliknięcia jak przycisk *"Zaakceptuj wszystkie"* (zakaz stosowania tzw. *Dark Patterns*).
+  * Użytkownik musi mieć możliwość zmiany lub wycofania zgody w dowolnym momencie (np. poprzez stały link w stopce).
+* **Polityka Prywatności i Plików Cookies:** Jasny dokument informujący, kto jest administratorem danych (pełne dane firmy), w jakim celu i jak długo dane są przetwarzane, komu są powierzane oraz jakie prawa przysługują użytkownikowi.
+* **Klauzule informacyjne przy formularzach:** Informacja o przetwarzaniu danych osobowych w celu obsługi zapytania (oraz osobne, **niezaznaczone domyślnie** checkboxy na ewentualne zgody marketingowe/newsletter).
+* **Regulamin świadczenia usług drogą elektroniczną:** Wymagany szczególnie przy sklepach internetowych, zakładaniu kont użytkowników, systemach rezerwacji czy zapisie na newsletter.
+* **Dyrektywa Omnibus (dla e-commerce i promocji):** Obowiązek informowania o najniższej cenie produktu/usługi z ostatnich 30 dni przed wprowadzeniem obniżki.
+
+---
+
+## 5.5. Analityka, Testowanie i Utrzymanie
+
+* **Analityka webowa:** Wdrożenie narzędzi pozwalających mierzyć ruch i konwersje (np. Google Analytics 4 z Consent Mode, lub rozwiązania privacy-first niewymagające uciążliwych banerów cookies, jak Plausible czy Umami).
+* **Google Search Console & Bing Webmaster Tools:** Monitorowanie stanu indeksacji, błędów mobilnych i wyników Core Web Vitals.
+* **Favicon i Web App Manifest:** Zestaw ikon strony dla przeglądarek, urządzeń Apple (`apple-touch-icon`) oraz ekranów głównych Androida (`manifest.webmanifest`).
+* **Kompatybilność międzyprzeglądarkowa (Cross-Browser Testing):** Przetestowanie działania na silnikach Chromium (Chrome, Edge, Brave), WebKit (Safari na macOS i iOS – szczególnie ważne ze względu na specyfikę iOS!) oraz Gecko (Firefox).
+* **Monitoring dostępności (Uptime Monitoring) i błędów:** Automatyczne powiadomienia w razie awarii serwera lub wygaśnięcia certyfikatu SSL/domeny.
+
+# 6. Marketing, Optymalizacja Konwersji (CRO), CTA i Monetyzacja Strony
+
+Strona internetowa to nie tylko wizytówka estetyczna, ale przede wszystkim **narzędzie biznesowe, które ma przynosić mierzalny zysk (ROI)** – poprzez bezpośrednią sprzedaż (e-commerce, SaaS), generowanie zapytań ofertowych (*Lead Generation*), rezerwacje usług lub budowanie bazy subskrybentów.
+
+Poniższe wytyczne opierają się na badaniach i frameworkach najbardziej zaufanych instytucji w branży UX, Web Designu i Marketingu:
+* **Nielsen Norman Group (NN/g)** – światowy lider badań użyteczności (Jakob Nielsen, Don Norman).
+* **Baymard Institute** – największy instytut badający UX w e-commerce, koszykach zakupowych i formularzach.
+* **CXL Institute (Peep Laja)** – autorytet w dziedzinie *Conversion Rate Optimization (CRO)* i psychologii konwersji.
+* **Copyhackers (Joanna Wiebe)** – twórcy metodologii *Conversion Copywriting*.
+* **MECLABS Institute** – twórcy heurystycznego równania konwersji.
+* **HubSpot & Unbounce** – standardy architektury landing page'y, *Inbound Marketingu* i automatyzacji sprzedaży.
+
+---
+
+## 6.1. Architektura Zysku i Równanie Konwersji (MECLABS & CXL)
+
+Według **MECLABS Institute** prawdopodobieństwo, że użytkownik dokona zakupu lub zostawi kontakt na stronie, opisuje wzór:
+
+$$C = 4m + 3v + 2(i - f) - 2a$$
+
+Gdzie:
+* **$C$ (Conversion):** Prawdopodobieństwo konwersji (zysku).
+* **$m$ (Motivation – waga 4):** Motywacja użytkownika, z jaką wchodzi na stronę (dopasowanie reklamy/wyszukiwania do treści strony – tzw. *Message Match*).
+* **$v$ (Value Proposition – waga 3):** Jasność i siła propozycji wartości (dlaczego warto kupić u Ciebie, a nie u konkurencji?).
+* **$i$ (Incentive):** Dodatkowa zachęta do działania teraz (bonus, darmowa wycena, rabat, ograniczona dostępność).
+* **$f$ (Friction):** Tarcie / przeszkody (zbyt długi formularz, wolna strona, niezrozumiały język, wymóg zakładania konta).
+* **$a$ (Anxiety):** Obawy i lęk przed podjęciem decyzji (brak opinii, ukryte koszty, obawa o bezpieczeństwo płatności lub spam).
+
+**Wniosek dla Web Designera i Marketera:** Największy wzrost zysku daje **wzmocnienie propozycji wartości ($v$)** przy jednoczesnym **usuwaniu tarcia ($f$) i obaw ($a$)**.
+
+---
+
+## 6.2. Projektowanie Skutecznych Wezwań do Działania (CTA – Call to Action)
+
+Według badań **Nielsen Norman Group (NN/g)**, **CXL** oraz **Unbounce**, przycisk CTA to najważniejszy punkt styku między zainteresowaniem a pieniędzmi.
+
+### 1. Copywriting przycisku (Tekst na CTA)
+* **Zakaz ogólników (NN/g):** Unikaj bezosobowych, nic niemówiących etykiet typu *"Wyślij"*, *"Kliknij tutaj"*, *"Więcej"* lub *"Rozpocznij"*. Użytkownik musi dokładnie wiedzieć, co stanie się po kliknięciu.
+* **Formuła Wartości:** `Czasownik + Konkretna Korzyść / Rezultat`:
+  * ❌ *Źle:* „Wyślij formularz" / „Dowiedz się więcej"
+  * ✅ *Dobrze:* „Odbierz darmową wycenę w 24h" / „Pobierz cennik PDF" / „Wypróbuj przez 14 dni za darmo"
+* **Perspektywa 1. osoby vs. 2. osoby (Copyhackers):** Testy A/B często wykazują wzrost klikalności przy użyciu zaimka „Mój" zamiast „Twój" (np. *"Stwórz moje konto"* zamiast *"Stwórz swoje konto"*).
+
+### 2. Redukcja obaw wokół przycisku (Click Triggers / Sub-CTA Microcopy)
+Tuż pod przyciskiem CTA (lub obok niego) umieść krótki tekst neutralizujący ostatnią obawę przed kliknięciem (*Anxiety Reduction*):
+* *"Bez podawania karty płatniczej"*
+* *"Wycena jest w 100% darmowa i niezobowiązująca"*
+* *"Anulujesz jednym kliknięciem w dowolnym momencie"*
+* *"Odpowiadamy średnio w 15 minut"*
+
+### 3. Dopasowanie CTA do temperatury ruchu (Poziom Zaangażowania – CXL)
+Nie każdy użytkownik wchodzący na stronę po raz pierwszy jest gotowy na ślub (*„Kup teraz za 10 000 zł"*). Stosuj hierarchię CTA:
+* **Primary CTA (Główne – wysoki kontrast, wypełnione tło):** Dla użytkowników zdecydowanych (*„Zamów audyt"*, *„Dodaj do koszyka"*).
+* **Secondary CTA (Drugorzędne – przycisk typu Ghost/Outline lub link):** Dla użytkowników badających rynek, potrzebujących niższego progu wejścia (*„Zobacz przykładowe realizacje"*, *„Oblicz koszt w kalkulatorze"*, *„Pobierz darmowy poradnik"*).
+
+### 4. Wygląd i Rozmieszczenie CTA w Strukturze Strony
+* **Zasada izolacji i kontrastu (Efekt Von Restorff):** Przycisk głównego CTA musi mieć kolor akcentowy, który nie występuje na elementach nieklikalnych, oraz otoczenie białej przestrzeni (*whitespace*).
+* **Jedna główna akcja na ekran (Unbounce):** Strony docelowe (Landing Pages) z jednym wyraźnym celem konwertują wielokrotnie lepiej niż strony rozpraszające uwagę dziesiątkami równorzędnych linków (*Attention Ratio 1:1*).
+* **Strategiczne punkty powtórzenia CTA:**
+  1. W prawym górnym rogu przyklejonego paska nawigacji (*Sticky Header*) lub na dole ekranu na mobile (*Sticky Bottom Bar*).
+  2. W sekcji **Hero** (Above the Fold).
+  3. Po sekcji prezentującej główne korzyści / rozwiązanie problemu.
+  4. Bezpośrednio pod sekcją **Social Proof / Case Studies** (gdy zaufanie jest najwyższe).
+  5. W sekcji zamykającej stronę przed stopką (*Final CTA Section*).
+
+---
+
+## 6.3. Propozycja Wartości (Value Proposition) i Copywriting Sprzedażowy
+
+Według **Copyhackers** i **CXL**, użytkownik w ciągu **3–5 sekund** od wejścia na stronę podejmuje decyzję: *zostać czy zamknąć kartę*.
+
+### Anatomia idealnej sekcji Hero:
+1. **Nadtytuł (Eyebrow Copy):** Wskazuje grupę docelową lub kategorię (np. *„Dla właścicieli sklepów e-commerce"*).
+2. **Główny Nagłówek (`H1`):** Obietnica mierzalnego rezultatu lub rozwiązania konkretnego bólu klienta (np. *„Zwiększ sprzedaż w sklepie o 30% dzięki audytowi UX"* zamiast *„Witamy na stronie naszej agencji"*).
+3. **Podtytuł (Subheadline):** Wyjaśnia *w jaki sposób* produkt/usługa dowozi tę obietnicę.
+4. **Wizualizacja sukcesu:** Zdjęcie lub krótkie wideo pokazujące realny produkt w użyciu lub efekt końcowy (nigdy przypadkowe zdjęcia z banków zdjęć przedstawiające uścisk dłoni w biurze – badania eye-trackingowe **NN/g** dowodzą, że użytkownicy całkowicie ignorują generyczne zdjęcia stockowe!).
+
+### Sprawdzone Frameworki Copywriterskie do struktury sekcji:
+* **PAS (Problem – Agitate – Solution):**
+  1. Nazwij problem klienta.
+  2. Pokaż konsekwencje (koszt finansowy lub czasowy) ignorowania problemu.
+  3. Przedstaw swoją ofertę jako jedyne logiczne rozwiązanie.
+* **Język korzyści (Features vs. Benefits):**
+  * *Cecha (Feature):* Co produkt ma (np. *„Serwer NVMe z 99.9% uptime"*).
+  * *Korzyść (Benefit):* Co klient dzięki temu zyskuje (np. *„Twoja strona ładuje się w ułamku sekundy, więc nie tracisz klientów na rzecz konkurencji"*).
+
+---
+
+## 6.4. Psychologia Zaufania, Dowód Społeczny (Social Proof) i Cenniki
+
+Według badań **Stanford Web Credibility Research** oraz **Baymard Institute**, aż **75% użytkowników ocenia wiarygodność firmy na podstawie samego projektu jej strony internetowej** w ułamku sekundy.
+
+### Elementy budujące zaufanie (Trust Signals):
+* **Kontekstowy Dowód Społeczny (Contextual Social Proof):** Nie chowaj opinii na osobnej podstronie „Referencje" (prawie nikt tam nie wchodzi). Umieszczaj konkretne cytaty klientów ze zdjęciem, imieniem, nazwiskiem i nazwą firmy bezpośrednio obok formularzy, cenników i przycisków CTA.
+* **Twarde liczby i logotypy:** *„Zaufało nam 240+ firm"*, *„Średnia ocena 4.9/5 na podstawie 180 opinii w Google/Trustpilot"*.
+* **Odznaki bezpieczeństwa (Trust Badges):** Ikony bezpiecznych płatności (BLIK, Apple Pay, Google Pay, Visa/Mastercard, Stripe), certyfikaty branżowe, gwarancje zwrotu pieniędzy (*„30 dni na zwrot bez podawania przyczyny"*).
+* **Prawdziwy zespół i kontakt:** Prawdziwe zdjęcia zespołu, fizyczny adres firmy, NIP oraz klikalny numer telefonu i e-mail (strony anonimowe drastycznie tracą konwersję).
+
+### Psychologia Strony Cennika (Pricing Page Psychology):
+* **Zasada 3 pakietów (Choice Architecture):** Zbyt wiele opcji wywołuje *paraliż decyzyjny* (Prawo Hicka). Trzy pakiety (np. *Start / Pro / Enterprise*) ze środkowym pakietem wyróżnionym wizualnie jako **„Najczęściej wybierany"** skupiają wzrok i maksymalizują średnią wartość zamówienia (AOV).
+* **Efekt zakotwiczenia (Price Anchoring):** Pokazanie wyższego pakietu lub przekreślonej ceny bazowej sprawia, że docelowy pakiet wydaje się znacznie bardziej opłacalny.
+* **Przejrzystość kosztów (Baymard Institute):** Ukryte koszty (np. dostawa lub dodatkowe opłaty doliczane dopiero na ostatnim kroku koszyka) są **powodem nr 1 porzucania koszyków w internecie (ok. 48% porzuceń)**.
+
+---
+
+## 6.5. Generowanie Leadów (Lead Generation) i Optymalizacja Koszyka
+
+### Dla stron usługowych i B2B (HubSpot & Unbounce):
+* **Lead Magnets (Magnesy na leady):** Dla osób niegotowych na zakup zaoferuj darmową wartość w zamian za adres e-mail (kalkulator wyceny, checklista PDF, darmowy rozdział e-booka, webinar, bezpłatny mini-audyt).
+* **Formularze wielokrokowe (Multi-Step Forms):** Gdy musisz zebrać więcej danych (np. 6–8 pól do wyceny), podziel formularz na 2–3 proste kroki z paskiem postępu (*Progress Bar*). Zaczynaj od łatwych pytań wyboru (np. kafelki z rodzajem usługi), a o dane kontaktowe (e-mail/telefon) pytaj na końcu (wykorzystuje to psychologiczną regułę zaangażowania i konsekwencji Cialdiniego).
+
+### Dla sklepów internetowych E-commerce (Baymard Institute):
+* **Zakupy bez rejestracji (Guest Checkout):** Wymuszanie założenia konta przed zakupem powoduje utratę ok. **24% kupujących**. Zawsze oferuj szybki zakup jako gość, a utworzenie konta zaproponuj jednym kliknięciem na stronie podziękowania po opłaceniu zamówienia.
+* **Uproszczony Checkout:** Ogranicz liczbę pól adresowych do minimum (połącz Imię i Nazwisko w jedno pole lub użyj autouzupełniania kodów pocztowych i paczkomatów).
+* **Ratowanie porzuconych koszyków i intencji wyjścia (Exit-Intent):** Nienachalne przypomnienie lub rabat w momencie, gdy użytkownik zamierza opuścić stronę z pełnym koszykiem.
+
+---
+
+## 6.6. Analityka Marketingowa, Testy i Ciągłe Doskonalenie (CRO Loop)
+
+Strona zarabiająca pieniądze nigdy nie jest projektem „zrób i zapomnij" – to żywy organizm optymalizowany na podstawie danych:
+
+1. **Śledzenie mikro- i makro-konwersji (GA4 / Tag Manager / Pixel):**
+   * *Makro-konwersje:* Zakup, wysłanie formularza kontaktowego, telefon z kliknięcia w numer (`tel:`).
+   * *Mikro-konwersje:* Kliknięcie w cennik, przewinięcie 75% strony, pobranie pliku PDF, otwarcie czatu.
+2. **Mapy ciepła i nagrania sesji (Hotjar / Microsoft Clarity):**
+   * **Scroll Maps:** Pokazują, do którego momentu strony faktycznie docierają użytkownicy (czy widzą Twoje najważniejsze CTA?).
+   * **Click Maps & Rage Clicks:** Pokazują, w które elementy użytkownicy klikają (często próbują klikać w elementy nieklikalne lub denerwują się na niedziałający przycisk).
+3. **Testy A/B:** Testowanie nagłówków `H1`, tekstów na przyciskach CTA oraz układów formularzy na realnym ruchu.
+
+---
+
+## 6.7. Zaufane Źródła dla Web Designerów i Marketerów (Baza Referencyjna)
+
+Podczas projektowania i audytowania strony pod kątem zysku warto korzystać bezpośrednio z raportów tych organizacji:
+1. **Nielsen Norman Group (`nngroup.com`)** – artykuły i badania eye-trackingowe nt. UX, nawigacji, czytelności i mikrocopy.
+2. **Baymard Institute (`baymard.com`)** – ponad 130 000 godzin badań użyteczności e-commerce, formularzy, wyszukiwarek i stron produktowych.
+3. **CXL (`cxl.com/blog`)** – najbardziej zaawansowana baza wiedzy o CRO, psychologii sprzedaży, testach A/B i architekturze konwersji.
+4. **Copyhackers (`copyhackers.com`)** – praktyczne przewodniki po pisaniu tekstów sprzedażowych, nagłówków i przycisków CTA.
+5. **Unbounce (`unbounce.com`)** – raporty *Conversion Benchmark Report* pokazujące średnie współczynniki konwersji dla różnych branż.
+6. **Smashing Magazine (`smashingmagazine.com`) & Awwwards (`awwwards.com`)** – wzorce nowoczesnego projektowania UI/UX łączącego estetykę z użytecznością.
+7. **Growth.Design (`growth.design`)** – interaktywne studia przypadków (Case Studies) pokazujące psychologię stojącą za najbardziej dochodowymi stronami i aplikacjami na świecie.
