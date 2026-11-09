@@ -1,0 +1,6 @@
+# Ignoruj tymczasowe pliki systemowe i edytorów
+.DS_Store
+Thumbs.db
+~$*
+*.xlsx
+*.docx
